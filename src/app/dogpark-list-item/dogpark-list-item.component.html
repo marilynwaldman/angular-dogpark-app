@@ -1,0 +1,6 @@
+<div class="view">
+  <input class="toggle" type="checkbox" (click)="toggleDogparkComplete(dogpark)" [checked]="dogpark.complete">
+  <label>{{dogpark.title}}</label>
+  <label>{{dogpark.name}}</label>
+  <button class="destroy" (click)="removeDogpark(dogpark)"></button>
+</div>

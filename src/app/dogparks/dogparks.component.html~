@@ -1,0 +1,13 @@
+<section class="dogparkapp">
+  <app-dogpark-list-header
+    (add)="onAddDogpark($event)"
+  ></app-dogpark-list-header>
+  <app-dogpark-list
+    [dogparks]="dogparks"
+    (toggleComplete)="onToggleDogparkComplete($event)"
+    (remove)="onRemoveDogpark($event)"
+  ></app-dogpark-list>
+  <app-dogpark-list-footer
+    [dogparks]="dogparks"
+  ></app-dogpark-list-footer>
+</section>

@@ -1,0 +1,33 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Todo } from '../dogpark';
+
+@Component(
+  {
+    selector: 'app-dogpark-list',
+    templateUrl: './dogpark-list.component.html',
+    styleUrls: ['./dogpark-list.component.css']
+  }
+)
+export class TodoListComponent {
+
+  @Input()
+  dogparks: Todo[];
+
+  @Output()
+  remove: EventEmitter<Todo> = new EventEmitter();
+
+  @Output()
+  toggleComplete: EventEmitter<Todo> = new EventEmitter();
+
+  constructor() {
+  }
+
+  onToggleTodoComplete(dogpark: Todo) {
+    this.toggleComplete.emit(dogpark);
+  }
+
+  onRemoveTodo(dogpark: Todo) {
+    this.remove.emit(dogpark);
+  }
+
+}

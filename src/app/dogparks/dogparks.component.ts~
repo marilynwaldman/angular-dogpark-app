@@ -1,0 +1,61 @@
+import { Component, OnInit } from '@angular/core';
+import { TodoDataService } from '../dogpark-data.service';
+import { Todo } from '../dogpark';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-dogparks',
+  templateUrl: './dogparks.component.html',
+  styleUrls: ['./dogparks.component.css'],
+  providers: [TodoDataService]
+})
+export class TodosComponent implements OnInit {
+
+  dogparks: Todo[] = [];
+
+  constructor(
+    private dogparkDataService: TodoDataService,
+    private route: ActivatedRoute
+  ) {
+  }
+
+  public ngOnInit() {
+    this.route.data
+      .map((data) => data['dogparks'])
+      .subscribe(
+        (dogparks) => {
+          this.dogparks = dogparks;
+        }
+      );
+  }
+
+  onAddTodo(dogpark) {
+    this.dogparkDataService
+      .addTodo(dogpark)
+      .subscribe(
+        (newTodo) => {
+          this.dogparks = this.dogparks.concat(newTodo);
+        }
+      );
+  }
+
+  onToggleTodoComplete(dogpark) {
+    this.dogparkDataService
+      .toggleTodoComplete(dogpark)
+      .subscribe(
+        (updatedTodo) => {
+          dogpark = updatedTodo;
+        }
+      );
+  }
+
+  onRemoveTodo(dogpark) {
+    this.dogparkDataService
+      .deleteTodoById(dogpark.id)
+      .subscribe(
+        (_) => {
+          this.dogparks = this.dogparks.filter((t) => t.id !== dogpark.id);
+        }
+      );
+  }
+}

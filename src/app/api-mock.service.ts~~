@@ -1,0 +1,40 @@
+import { Injectable } from '@angular/core';
+import { Todo } from './dogpark';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+
+@Injectable()
+export class ApiMockService {
+
+  constructor(
+  ) {
+  }
+
+  public getAllTodos(): Observable<Todo[]> {
+    return Observable.of([
+      new Todo({id: 1, title: 'Read article', complete: false})
+    ]);
+  }
+
+  public createTodo(dogpark: Todo): Observable<Todo> {
+    return Observable.of(
+      new Todo({id: 1, title: 'Read article', complete: false})
+    );
+  }
+
+  public getTodoById(dogparkId: number): Observable<Todo> {
+    return Observable.of(
+      new Todo({id: 1, title: 'Read article', complete: false})
+    );
+  }
+
+  public updateTodo(dogpark: Todo): Observable<Todo> {
+    return Observable.of(
+      new Todo({id: 1, title: 'Read article', complete: false})
+    );
+  }
+
+  public deleteTodoById(dogparkId: number): Observable<null> {
+    return null;
+  }
+}

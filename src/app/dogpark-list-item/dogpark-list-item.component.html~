@@ -1,0 +1,5 @@
+<div class="view">
+  <input class="toggle" type="checkbox" (click)="toggleTodoComplete(dogpark)" [checked]="dogpark.complete">
+  <label>{{dogpark.title}}</label>
+  <button class="destroy" (click)="removeTodo(dogpark)"></button>
+</div>

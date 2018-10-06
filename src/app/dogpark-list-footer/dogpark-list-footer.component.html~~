@@ -1,0 +1,3 @@
+<footer class="footer" *ngIf="dogparks.length > 0">
+  <span class="dogpark-count"><strong>{{dogparks.length}}</strong> {{dogparks.length == 1 ? 'item' : 'items'}} left</span>
+</footer>

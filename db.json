@@ -1,0 +1,22 @@
+{
+  "dogparks": [
+    {
+      "title": "new SitePoint article",
+      "complete": false,
+      "id": 1,
+      "name": "Twin Lakes Dog Park"
+    },
+    {
+      "id": 2,
+      "title": "Clean inbox",
+      "complete": false,
+      "name": "Longmont Dog Park"
+    },
+    {
+      "title": "Make restaurant reservation",
+      "complete": false,
+      "id": 3,
+      "name": "Denver"
+    }
+  ]
+}

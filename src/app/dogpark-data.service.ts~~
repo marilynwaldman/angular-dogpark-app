@@ -1,0 +1,46 @@
+import { Injectable } from '@angular/core';
+import { Todo } from './dogpark';
+import { ApiService } from './api.service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/delay';
+
+@Injectable()
+export class TodoDataService {
+
+  constructor(
+    private api: ApiService
+  ) {
+  }
+
+  // Simulate POST /dogparks
+  addTodo(dogpark: Todo): Observable<Todo> {
+    return this.api.createTodo(dogpark);
+  }
+
+  // Simulate DELETE /dogparks/:id
+  deleteTodoById(dogparkId: number): Observable<Todo> {
+    return this.api.deleteTodoById(dogparkId);
+  }
+
+  // Simulate PUT /dogparks/:id
+  updateTodo(dogpark: Todo): Observable<Todo> {
+    return this.api.updateTodo(dogpark);
+  }
+
+  // Simulate GET /dogparks
+  getAllTodos(): Observable<Todo[]> {
+    return this.api.getAllTodos().delay(3000);
+  }
+
+  // Simulate GET /dogparks/:id
+  getTodoById(dogparkId: number): Observable<Todo> {
+    return this.api.getTodoById(dogparkId);
+  }
+
+  // Toggle complete
+  toggleTodoComplete(dogpark: Todo) {
+    dogpark.complete = !dogpark.complete;
+    return this.api.updateTodo(dogpark);
+  }
+
+}

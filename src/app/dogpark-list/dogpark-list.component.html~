@@ -1,0 +1,10 @@
+<section class="main" *ngIf="dogparks.length > 0">
+  <ul class="dogpark-list">
+    <li *ngFor="let dogpark of dogparks" [class.completed]="dogpark.complete">
+      <app-dogpark-list-item
+        [dogpark]="dogpark"
+        (toggleComplete)="onToggleTodoComplete($event)"
+        (remove)="onRemoveTodo($event)"></app-dogpark-list-item>
+    </li>
+  </ul>
+</section>

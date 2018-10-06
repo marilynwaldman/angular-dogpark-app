@@ -1,0 +1,37 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { AppComponent } from './app.component';
+import { TodoListComponent } from './dogpark-list/dogpark-list.component';
+import { TodoListFooterComponent } from './dogpark-list-footer/dogpark-list-footer.component';
+import { TodoListHeaderComponent } from './dogpark-list-header/dogpark-list-header.component';
+import { TodoDataService } from './dogpark-data.service';
+import { TodoListItemComponent } from './dogpark-list-item/dogpark-list-item.component';
+import { ApiService } from './api.service';
+import { AppRoutingModule } from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TodosComponent } from './dogparks/dogparks.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    TodoListComponent,
+    TodoListFooterComponent,
+    TodoListHeaderComponent,
+    TodoListItemComponent,
+    PageNotFoundComponent,
+    TodosComponent
+  ],
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    FormsModule,
+    HttpModule
+  ],
+  providers: [TodoDataService, ApiService],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
